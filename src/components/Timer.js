@@ -19,6 +19,8 @@ import {
 import { updateFavicon, updateTitle, formatTime } from "../helpers";
 import useCountdown from "../useCountdown";
 import { player } from "../util";
+import Tasks from "./Tasks"; 
+import { incrementActPomodoros } from "../redux/taskSlice";
 
 const buttonSound = player({
   asset: "sounds/button-press.wav",
@@ -93,10 +95,12 @@ export default function Timer() {
       }
     },
     onComplete: () => {
-      next();
+    
       if (mode === POMODORO) {
+        dispatch(incrementActPomodoros()); // Tambah jumlah pomodoro pada task aktif
         tickingAudio.stop();
       }
+      next();
       alarmAudio.play();
     },
   });
@@ -227,6 +231,7 @@ export default function Timer() {
           {mode === POMODORO ? TIME_TO_FOCUS : TIME_FOR_A_BREAK}
         </footer>
       </div>
+      <Tasks /> {}
     </div>
   );
 }

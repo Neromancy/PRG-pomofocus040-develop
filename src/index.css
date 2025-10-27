@@ -8,9 +8,9 @@
 }
 
 :root {
-  --primary-color: rgb(219, 82, 77);
-  --secondary-color: rgb(70, 142, 145);
-  --tertiary-color: rgb(67, 126, 168);
+  --primary-color: rgb(247, 141, 96);
+  --secondary-color: rgb(100, 13, 95);
+  --tertiary-color: rgb(13, 17, 100);
 }
 
 button {
@@ -34,7 +34,6 @@ ul {
 html,
 body {
   height: 100%;
-  overflow: hidden;
 }
 
 #root {

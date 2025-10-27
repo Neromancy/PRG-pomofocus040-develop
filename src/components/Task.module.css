@@ -1,0 +1,62 @@
+.form {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: black;
+}
+
+.input {
+  width: 100%;
+  font-size: 1.25rem;
+  border: none;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+  outline: none;
+  font-weight: bold;
+}
+
+.input:focus {
+  border-bottom-color: #333;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #555;
+}
+
+.numInput {
+  margin-top: 0.5rem;
+  width: 5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.buttons {
+  background-color: #efefef;
+  padding: 1rem;
+  margin: 1rem -1rem -1rem;
+  text-align: right;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.cancelButton,
+.saveButton {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.cancelButton {
+  background: none;
+  color: #888;
+  margin-right: 0.5rem;
+}
+
+.saveButton {
+  background-color: #222;
+  color: white;
+}
