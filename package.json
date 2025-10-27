@@ -2,6 +2,7 @@
   "name": "pomofocus",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Neromancy.github.io/my-pomofocus-app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
     "@testing-library/jest-dom": "^5.11.4",

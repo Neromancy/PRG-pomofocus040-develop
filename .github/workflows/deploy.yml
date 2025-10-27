@@ -1,0 +1,59 @@
+name: Deploy to GitHub Pages
+
+# Run this workflow every time a new commit is pushed to the 'main' branch
+on:
+  push:
+    branches: [ main ]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1. Checks out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Sets up Node.js and specifies to use npm's cache for faster installs
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # You can change this to your preferred Node.js version
+          cache: 'npm'
+
+      # 3. Installs dependencies using 'npm ci' which is faster and safer for automation
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Builds the project for production. This creates the 'build' folder.
+      - name: Build project
+        run: npm run build
+
+      # 5. Configures GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # 6. Uploads the 'build' folder as an artifact for deployment
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './build'
+
+      # 7. Deploys the artifact to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
